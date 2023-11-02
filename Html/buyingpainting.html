@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Responsive Payment Gateway Form</title>
+    <!-- <link rel="stylesheet" type="text/css" href="payment.css"> -->
+    <link rel="icon" href="../img/other/logo3.jpg">
+    <style>
+        header {
+            width: 100vw;
+            min-height: 100vh;
+            background-image: url(../img/other/buddhaimage.jpg);
+            font-size: 1.2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: whitesmoke;
+            max-width: 800px;
+            min-height: 500px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 0.5rem 1.5rem;
+
+        }
+
+        .left {
+            flex-basis: 45%;
+        }
+
+        .right {
+            flex-basis: 45%;
+        }
+
+        form {
+            padding: 1rem;
+        }
+
+        form>input[type="number"] {
+            height: 1.5rem;
+            width: 80%;
+        }
+
+        h3 {
+            margin-top: 1rem;
+            color: brown;
+        }
+
+        form input[type="text"] {
+            width: 80%;
+            padding: 0.5rem 0.7rem;
+            margin: 0.5rem .4rem;
+            outline: none;
+        }
+
+        #zip {
+            display: flex;
+            margin-top: 0.5rem;
+        }
+
+        #zip select {
+            padding: 0.5rem 0.7rem;
+        }
+
+        .zip select {
+            padding: 0.5rem 0.7rem;
+        }
+
+        #zip input[type="number"] {
+            padding: 0.5rem 0.7rem;
+            margin-left: 5px;
+        }
+
+
+        button[type="submit"] {
+            border: 0px;
+            background-color: #34495e;
+            width: 200px;
+            height: 40px;
+            color: white;
+            margin: 15px;
+            border-radius: 5px;
+        }
+
+        button[type="submit"]:hover {
+            color: white;
+            background-color: #34495e;
+            width: 210px;
+            height: 45px;
+
+        }
+
+        .left {
+            border-right: 1px solid black;
+        }
+
+        /* repondsiveness */
+        @media only screen and (max-width: 600px) {
+            .container {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        footer {
+            background-color: #f1a089;
+            padding: 20px;
+            color: black;
+            font-weight: 800;
+            text-align: center;
+        }
+
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="left">
+                <h3>BILLING ADDRESS FOR PRODUCT (PAINTING)</h3>
+                <form>
+                    Full name
+                    <input type="text" name="" placeholder="Enter name">
+                    Email
+                    <input type="text" name="" placeholder="Enter email">
+                    Address
+                    <input type="text" name="" placeholder="Enter address">
+                    City
+                    <input type="text" name="" placeholder="Enter City">
+                    <div id="zip">
+                        <label>
+                            Country
+                            <select>
+                                <option> Choose Country..</option>
+                                <option> India</option>
+                                <option> United States</option>
+                                <option> Brazil</option>
+                                <option> Russia</option>
+                                <option> Mexico</option>
+                            </select>
+                        </label>
+                        <label>
+                            Zip code
+                            <input type="number" name="" placeholder="Enter Zip code">
+                        </label>
+                    </div>
+                </form>
+            </div>
+            <div class="right">
+                <h3>PAYMENT</h3>
+                <form>
+                    Accepted Card<br>
+                    <input type="radio" id="html" name="fav_language" value="HTML">
+                    <img src="../img/other/card1.png.png" width="75" />
+                    <input type="radio" id="html" name="fav_language" value="HTML">
+                    <img src="../img/other/sbicard.png" width="70" />
+                    <br>
+
+                    Credit Card number
+                    <input type="number" name="" placeholder="Enter card number">
+                    <div class="zip">
+
+                        Exp Month :-
+                        <label>
+                            <br>
+
+
+                            <select>
+                                <option> Choose Month..</option>
+                                <option> january</option>
+                                <option> february</option>
+                                <option> March</option>
+                                <option> April</option>
+                                <option> May</option>
+                                <option> June</option>
+                                <option> July</option>
+                                <option> Augest</option>
+                                <option> September</option>
+                                <option> October</option>
+                                <option> November</option>
+                                <option> December</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div id="zip">
+                        <label>
+
+                            Exp year
+                            <select>
+                                <option> Choose Year..</option>
+                                <option> 2022</option>
+                                <option> 2023</option>
+                                <option> 2024</option>
+                                <option> 2025</option>
+                                <option> 2026</option>
+                            </select>
+                        </label>
+                        <label>
+
+                            CVV
+                            <input type="number" name="" placeholder="CVV">
+                        </label>
+                    </div>
+                </form>
+                <button type="submit" onclick=submit()>Proceed to Pay</button>
+            </div>
+        </div>
+    </header>
+    <footer>
+        <p><span>&copy;</span> 2022 Your ANTIQUT Store. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
+
+
+<script>
+    function submit() {
+        window.alert("We will fetch your ORDER soon..!")
+        location.replace("PRODUCT.html")
+    }
+    let token = localStorage.getItem("token") || ""
+    if (token == "") {
+        window.location.href = "sign_in.html"
+    }
+</script>
